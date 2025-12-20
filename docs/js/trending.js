@@ -669,7 +669,17 @@ function showInstallModal(componentName) {
     const componentPath = componentCategory ? `${componentCategory}/${cleanName}` : cleanName;
 
     // Update the command with the correct flag and full component path
-    const command = `npx claude-code-templates@latest --${flagType} ${componentPath} --yes`;
+    let command;
+    if (flagType === 'agent' && (componentPath.startsWith('bbva/') || componentPath.includes('/bbva/'))) {
+        // Generate special installation URL for BBVA agents
+        const rawGithubUrl = `https://raw.githubusercontent.com/juananmora/claude-code-templates/main/cli-tool/components/agents/${componentPath}`;
+        const finalUrl = rawGithubUrl.endsWith('.md') ? rawGithubUrl : (rawGithubUrl.endsWith('.agent') ? rawGithubUrl + '.md' : rawGithubUrl + '.agent.md');
+        const encodedUrl = encodeURIComponent(finalUrl);
+        const vscodeUrl = encodeURIComponent(`vscode:chat-agent/install?url=${encodedUrl}`);
+        command = `https://aka.ms/awesome-copilot/install/agent?url=${vscodeUrl}`;
+    } else {
+        command = `npx claude-code-templates@latest --${flagType} ${componentPath} --yes`;
+    }
     commandText.textContent = command;
 
     // Show the modal

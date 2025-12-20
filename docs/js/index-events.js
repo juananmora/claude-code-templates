@@ -710,7 +710,19 @@ class IndexPageManager {
         if (componentPath.endsWith('.json')) {
             componentPath = componentPath.replace(/\.json$/, '');
         }
-        const installCommand = `npx claude-code-templates@latest --${component.type}=${componentPath} --yes`;
+        
+        // Check if agent is in bbva folder
+        let installCommand;
+        if (component.type === 'agent' && (componentPath.startsWith('bbva/') || componentPath.includes('/bbva/'))) {
+            // Generate special installation URL for BBVA agents
+            const rawGithubUrl = `https://raw.githubusercontent.com/juananmora/claude-code-templates/main/cli-tool/components/agents/${componentPath}`;
+            const finalUrl = rawGithubUrl.endsWith('.md') ? rawGithubUrl : (rawGithubUrl.endsWith('.agent') ? rawGithubUrl + '.md' : rawGithubUrl + '.agent.md');
+            const encodedUrl = encodeURIComponent(finalUrl);
+            const vscodeUrl = encodeURIComponent(`vscode:chat-agent/install?url=${encodedUrl}`);
+            installCommand = `https://aka.ms/awesome-copilot/install/agent?url=${vscodeUrl}`;
+        } else {
+            installCommand = `npx claude-code-templates@latest --${component.type}=${componentPath} --yes`;
+        }
         
         const typeConfig = {
             agent: { icon: '🤖', color: '#ff6b6b' },

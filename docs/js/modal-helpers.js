@@ -45,10 +45,29 @@ function createComponentModalHTML(component) {
     if (componentPath.endsWith('.json')) {
         componentPath = componentPath.replace(/\.json$/, '');
     }
-    const installCommand = `npx claude-code-templates@latest --${component.type}=${componentPath} --yes`;
     
-    // Generate global agent command for agents only
-    const globalAgentCommand = component.type === 'agent' ? `npx claude-code-templates@latest --create-agent ${componentPath}` : null;
+    // Check if agent is in bbva folder
+    let installCommand;
+    if (component.type === 'agent' && (componentPath.startsWith('bbva/') || componentPath.includes('/bbva/'))) {
+        // Generate special installation URL for BBVA agents
+        // Use original path with extension
+        let fullPath = component.path || component.name;
+        
+        // If it doesn't have an extension, add .agent.md as default
+        if (!fullPath.endsWith('.md') && !fullPath.endsWith('.agent.md')) {
+            fullPath = fullPath + '.agent.md';
+        }
+        
+        const rawGithubUrl = `https://raw.githubusercontent.com/juananmora/claude-code-templates/main/cli-tool/components/agents/${fullPath}`;
+        const encodedUrl = encodeURIComponent(rawGithubUrl);
+        const vscodeUrl = encodeURIComponent(`vscode:chat-agent/install?url=${encodedUrl}`);
+        installCommand = `https://aka.ms/awesome-copilot/install/agent?url=${vscodeUrl}`;
+    } else {
+        installCommand = `npx claude-code-templates@latest --${component.type}=${componentPath} --yes`;
+    }
+    
+    // Generate global agent command for agents only (skip for BBVA agents)
+    const globalAgentCommand = (component.type === 'agent' && !componentPath.startsWith('bbva/') && !componentPath.includes('/bbva/')) ? `npx claude-code-templates@latest --create-agent ${componentPath}` : null;
     
     const description = getComponentDescription(component); // Full description
 
@@ -79,11 +98,19 @@ function createComponentModalHTML(component) {
                             <!-- Basic Installation -->
                             <div class="basic-installation-section">
                                 <h4>📦 Basic Installation</h4>
+                                ${installCommand.startsWith('https://') ? `
+                                <p class="installation-description">Click the button below to install this BBVA agent directly in VS Code.</p>
+                                <div class="command-line">
+                                    <code style="font-size: 0.9em; word-break: break-all;">${installCommand}</code>
+                                    <button class="copy-btn" onclick="window.open('${installCommand.replace(/'/g, "\\'")}', '_blank')" style="background: #001391;">Install</button>
+                                </div>
+                                ` : `
                                 <p class="installation-description">Install this ${component.type} locally in your project. Works with your existing Claude Code setup.</p>
                                 <div class="command-line">
                                     <code>${installCommand}</code>
                                     <button class="copy-btn" data-command="${installCommand.replace(/"/g, '&quot;')}" onclick="copyToClipboard(this.dataset.command)">Copy</button>
                                 </div>
+                                `}
                             </div>
                             
                             ${globalAgentCommand ? `

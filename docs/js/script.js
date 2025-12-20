@@ -1504,6 +1504,15 @@ function createComponentCard(component) {
 // Generate install command for component
 function generateInstallCommand(component) {
     if (component.type === 'agent') {
+        // Check if agent is in bbva folder
+        const agentPath = component.path || component.name;
+        if (agentPath.startsWith('bbva/') || agentPath.includes('/bbva/')) {
+            // Generate special installation URL for BBVA agents
+            const rawGithubUrl = `https://raw.githubusercontent.com/juananmora/claude-code-templates/main/cli-tool/components/agents/${agentPath}`;
+            const encodedUrl = encodeURIComponent(rawGithubUrl);
+            const vscodeUrl = encodeURIComponent(`vscode:chat-agent/install?url=${encodedUrl}`);
+            return `https://aka.ms/awesome-copilot/install/agent?url=${vscodeUrl}`;
+        }
         return `npx claude-code-templates@latest --agent=${component.name} --yes`;
     } else if (component.type === 'command') {
         return `npx claude-code-templates@latest --command=${component.name} --yes`;

@@ -1,0 +1,26 @@
+{
+  "name": "claude-code-templates",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-next",
+        "ms-python.python"
+      ]
+    }
+  },
+  "postCreateCommand": "npm install -g vercel && npm install && cd api && npm install && cd ../cli-tool && npm install && cd ../docu && npm install",
+  "remoteUser": "node"
+}

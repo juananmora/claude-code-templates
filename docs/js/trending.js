@@ -410,6 +410,17 @@ class TrendingPage {
         const componentType = this.getComponentTypeLabel(item);
         const downloads = this.getDownloadsForRange(item);
         
+        // Check if it's a BBVA agent for VS Code badge
+        const itemPath = item.path || item.name || '';
+        const isBBVAAgent = itemType === 'agents' && (itemPath.startsWith('bbva/') || itemPath.includes('/bbva/'));
+        const vscodeBadge = isBBVAAgent ? `
+            <div class="vscode-badge" title="Installs in VS Code" style="background: #007ACC; color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; margin-left: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.5,0L5,0C3.9,0,3,0.9,3,2l0,20c0,1.1,0.9,2,2,2l12.5,0c1.1,0,2-0.9,2-2l0-20C19.5,0.9,18.6,0,17.5,0z M17.5,22L5,22L5,2l12.5,0L17.5,22z M9,7l0,2l2,0l0-2L9,7z M9,11l0,2l2,0l0-2L9,11z M9,15l0,2l2,0l0-2L9,15z M13,7l0,2l2,0l0-2L13,7z M13,11l0,2l2,0l0-2L13,11z M13,15l0,2l2,0l0-2L13,15z"/>
+                </svg>
+                VS Code
+            </div>` : '';
+        
         itemElement.innerHTML = `
             <div class="trending-rank">
                 <span class="rank-number">#${rank}</span>
@@ -423,6 +434,7 @@ class TrendingPage {
                         </svg>
                         <h3 class="trending-name">${item.name}</h3>
                         <span class="trending-category">${category}</span>
+                        ${vscodeBadge}
                     </div>
                     <button class="install-button" onclick="showInstallModal('${item.id || item.name}')">
                         <svg class="install-icon" fill="currentColor" viewBox="0 0 16 16">

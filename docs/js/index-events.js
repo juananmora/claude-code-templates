@@ -758,11 +758,22 @@ class IndexPageManager {
         // Create validation badge for agents with security data
         const validationBadge = this.createValidationBadge(component.security);
 
+        // Create VS Code badge for BBVA agents
+        const isVSCodeInstall = component.type === 'agent' && (componentPath.startsWith('bbva/') || componentPath.includes('/bbva/'));
+        const vscodeBadge = isVSCodeInstall ? 
+            `<div class="vscode-badge" title="Installs in VS Code" style="position: absolute; top: 10px; left: 10px; background: #007ACC; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 4px; z-index: 10;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.5,0L5,0C3.9,0,3,0.9,3,2l0,20c0,1.1,0.9,2,2,2l12.5,0c1.1,0,2-0.9,2-2l0-20C19.5,0.9,18.6,0,17.5,0z M17.5,22L5,22L5,2l12.5,0L17.5,22z M9,7l0,2l2,0l0-2L9,7z M9,11l0,2l2,0l0-2L9,11z M9,15l0,2l2,0l0-2L9,15z M13,7l0,2l2,0l0-2L13,7z M13,11l0,2l2,0l0-2L13,11z M13,15l0,2l2,0l0-2L13,15z"/>
+                </svg>
+                VS Code
+            </div>` : '';
+
         return `
             <div class="template-card" data-type="${component.type}">
                 <div class="card-inner">
                     <div class="card-front">
                         ${downloadBadge}
+                        ${vscodeBadge}
                         ${categoryLabel}
                         <div class="framework-logo" style="color: ${config.color}">
                             <span class="component-icon">${config.icon}</span>

@@ -31,7 +31,7 @@ The website is built as a static site that:
 
 This website is automatically deployed to GitHub Pages when changes are pushed to the `docs/` directory in the main branch.
 
-Visit: [https://davila7.github.io/claude-code-templates](https://davila7.github.io/claude-code-templates)
+Visit: [https://juananmora.github.io/claude-code-templates](https://juananmora.github.io/claude-code-templates)
 
 ## Development
 

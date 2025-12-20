@@ -4,11 +4,11 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Sponsored by Z.AI](https://img.shields.io/badge/Sponsored%20by-Z.AI-2563eb?style=flat&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMiAyMkgyMkwxMiAyWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+)](https://z.ai/subscribe?ic=8JVLJQFSKB&utm_source=github&utm_medium=badge&utm_campaign=readme)
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-yellow?style=flat&logo=buy-me-a-coffee)](https://buymeacoffee.com/daniavila)
-[![GitHub stars](https://img.shields.io/github/stars/davila7/claude-code-templates.svg?style=social&label=Star)](https://github.com/davila7/claude-code-templates)
+[![GitHub stars](https://img.shields.io/github/stars/juananmora/claude-code-templates.svg?style=social&label=Star)](https://github.com/juananmora/claude-code-templates)
 
 <p align="center">
   <a href="https://trendshift.io/repositories/15113" target="_blank">
-    <img src="https://trendshift.io/api/badge/repositories/15113" alt="davila7%2Fclaude-code-templates | Trendshift" style="width: 200px; height: 40px;" width="125" height="40"/>
+    <img src="https://trendshift.io/api/badge/repositories/15113" alt="juananmora%2Fclaude-code-templates | Trendshift" style="width: 200px; height: 40px;" width="125" height="40"/>
   </a>
   <br />
   <br />
@@ -70,27 +70,29 @@ npx claude-code-templates@latest --mcp database/postgresql-integration --yes
 
 ## What You Get
 
-| Component | Description | Examples |
-|-----------|-------------|----------|
-| **🤖 Agents** | AI specialists for specific domains | Security auditor, React performance optimizer, database architect |
-| **⚡ Commands** | Custom slash commands | `/generate-tests`, `/optimize-bundle`, `/check-security` |
-| **🔌 MCPs** | External service integrations | GitHub, PostgreSQL, Stripe, AWS, OpenAI |
-| **⚙️ Settings** | Claude Code configurations | Timeouts, memory settings, output styles |
-| **🪝 Hooks** | Automation triggers | Pre-commit validation, post-completion actions |
-| **🎨 Skills** | Reusable capabilities with progressive disclosure | PDF processing, Excel automation, custom workflows |
+| Component       | Description                                       | Examples                                                          |
+| --------------- | ------------------------------------------------- | ----------------------------------------------------------------- |
+| **🤖 Agents**   | AI specialists for specific domains               | Security auditor, React performance optimizer, database architect |
+| **⚡ Commands** | Custom slash commands                             | `/generate-tests`, `/optimize-bundle`, `/check-security`          |
+| **🔌 MCPs**     | External service integrations                     | GitHub, PostgreSQL, Stripe, AWS, OpenAI                           |
+| **⚙️ Settings** | Claude Code configurations                        | Timeouts, memory settings, output styles                          |
+| **🪝 Hooks**    | Automation triggers                               | Pre-commit validation, post-completion actions                    |
+| **🎨 Skills**   | Reusable capabilities with progressive disclosure | PDF processing, Excel automation, custom workflows                |
 
 ## 🛠️ Additional Tools
 
 Beyond the template catalog, Claude Code Templates includes powerful development tools:
 
 ### 📊 Claude Code Analytics
+
 Monitor your AI-powered development sessions in real-time with live state detection and performance metrics.
 
 ```bash
 npx claude-code-templates@latest --analytics
 ```
 
-### 💬 Conversation Monitor  
+### 💬 Conversation Monitor
+
 Mobile-optimized interface to view Claude responses in real-time with secure remote access.
 
 ```bash
@@ -102,6 +104,7 @@ npx claude-code-templates@latest --chats --tunnel
 ```
 
 ### 🔍 Health Check
+
 Comprehensive diagnostics to ensure your Claude Code installation is optimized.
 
 ```bash
@@ -109,6 +112,7 @@ npx claude-code-templates@latest --health-check
 ```
 
 ### 🔌 Plugin Dashboard
+
 View marketplaces, installed plugins, and manage permissions from a unified interface.
 
 ```bash
@@ -130,14 +134,16 @@ We welcome contributions! **[Browse existing templates](https://aitmpl.com)** to
 This collection includes components from multiple sources:
 
 **Agents Collection:**
+
 - **wshobson/agents Collection** by [wshobson](https://github.com/wshobson/agents) - Licensed under MIT License (48 agents)
 
 **Commands Collection:**
+
 - **awesome-claude-code Commands** by [hesreallyhim](https://github.com/hesreallyhim/awesome-claude-code) - Licensed under CC0 1.0 Universal (21 commands)
 
 Some of the commands and resources included in this marketplace come from open-source community repositories originally listed in [awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code).
 
-Each of these resources retains its **original license and attribution**, as defined by their respective authors (mostly MIT-licensed).  
+Each of these resources retains its **original license and attribution**, as defined by their respective authors (mostly MIT-licensed).
 
 Please note that **awesome-claude-code** is **no longer licensed under CC 1.0**.  
 We respect and credit all original creators for their work and contributions to the Claude ecosystem.
@@ -150,11 +156,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **🌐 Browse Templates**: [aitmpl.com](https://aitmpl.com)
 - **📚 Documentation**: [docs.aitmpl.com](https://docs.aitmpl.com)
-- **💬 Community**: [GitHub Discussions](https://github.com/davila7/claude-code-templates/discussions)
-- **🐛 Issues**: [GitHub Issues](https://github.com/davila7/claude-code-templates/issues)
+- **💬 Community**: [GitHub Discussions](https://github.com/juananmora/claude-code-templates/discussions)
+- **🐛 Issues**: [GitHub Issues](https://github.com/juananmora/claude-code-templates/issues)
 
 ## Stargazers over time
-[![Stargazers over time](https://starchart.cc/davila7/claude-code-templates.svg?variant=adaptive)](https://starchart.cc/davila7/claude-code-templates)
+
+[![Stargazers over time](https://starchart.cc/juananmora/claude-code-templates.svg?variant=adaptive)](https://starchart.cc/juananmora/claude-code-templates)
 
 ---
 

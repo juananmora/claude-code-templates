@@ -17,7 +17,7 @@ let workflowState = {
 
 // GitHub API configuration
 const GITHUB_CONFIG = {
-    owner: 'davila7',
+    owner: 'juananmora',
     repo: 'claude-code-templates',
     branch: 'main'
 };
@@ -530,7 +530,7 @@ function getComponentDescription(component) {
 }
 
 function viewOnGitHub(path) {
-    const url = `https://github.com/davila7/claude-code-templates/tree/main/${path}`;
+    const url = `https://github.com/juananmora/claude-code-templates/tree/main/${path}`;
     window.open(url, '_blank');
 }
 

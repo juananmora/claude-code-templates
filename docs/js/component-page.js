@@ -490,7 +490,7 @@ class ComponentPageManager {
             }
 
             // Fallback: try to fetch marketplace.json directly from components/.claude-plugin/
-            const marketplaceResponse = await fetch('https://raw.githubusercontent.com/davila7/claude-code-templates/main/cli-tool/components/.claude-plugin/marketplace.json');
+            const marketplaceResponse = await fetch('https://raw.githubusercontent.com/juananmora/claude-code-templates/main/cli-tool/components/.claude-plugin/marketplace.json');
             if (marketplaceResponse.ok) {
                 this.componentsMarketplace = await marketplaceResponse.json();
                 console.log('Loaded components marketplace from GitHub:', this.componentsMarketplace);
@@ -784,7 +784,7 @@ class ComponentPageManager {
     }
 
     generateGitHubURL() {
-        let githubUrl = 'https://github.com/davila7/claude-code-templates/';
+        let githubUrl = 'https://github.com/juananmora/claude-code-templates/';
         
         if (this.component.type === 'template') {
             githubUrl += `tree/main/cli-tool/templates/${this.component.folderPath || ''}`;

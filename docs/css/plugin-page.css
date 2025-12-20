@@ -24,7 +24,7 @@
 }
 
 .back-link:hover {
-    color: var(--text-accent);
+    color: var(--accent-primary, var(--text-accent));
 }
 
 .back-link svg {

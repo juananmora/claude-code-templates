@@ -25,4 +25,4 @@ Disallow: /.vercel/
 Disallow: /dev-server.js
 
 # Sitemap location
-Sitemap: https://davila7.github.io/claude-code-templates/sitemap.xml
+Sitemap: https://juananmora.github.io/claude-code-templates/sitemap.xml

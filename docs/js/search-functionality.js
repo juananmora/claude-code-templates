@@ -895,7 +895,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 margin-bottom: 1rem;
                 padding-bottom: 0.5rem;
                 border-bottom: 1px solid var(--border-color, #2a3338);
-                color: var(--text-color, #ffffff);
+                color: #001391;
                 font-size: 1.25rem;
                 font-weight: 600;
             }
